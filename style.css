@@ -190,6 +190,12 @@ body {
     font-weight: bold;
 }
 
+@media (min-width: 600px) {
+    .event-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 .about p {
     max-width: 65ch;
 }
