@@ -262,3 +262,108 @@ body {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 }
+
+/* Boox Store colour update */
+:root {
+    --color-brand: #254d3e;
+    --color-background: #faf7f0;
+    --color-text: #29251f;
+    --color-surface: #ffffff;
+    --color-soft-green: #e5eee6;
+    --color-accent: #edc980;
+    --color-border: #ccd9ce;
+}
+
+/* Header */
+.site-header {
+    background-color: var(--color-brand);
+}
+
+.site-header .logo,
+.site-header .nav-links a {
+    color: var(--color-background);
+}
+
+.site-header .nav-links a:hover {
+    color: var(--color-accent);
+}
+
+/* Hero */
+.hero {
+    background-color: var(--color-soft-green);
+}
+
+.hero h1 {
+    color: var(--color-brand);
+}
+
+.button {
+    background-color: var(--color-brand);
+    color: var(--color-background);
+}
+
+.button:hover {
+    background-color: #19382c;
+}
+
+/* Books and events */
+.book-card,
+.event-card {
+    background-color: var(--color-surface);
+    border-color: var(--color-border);
+}
+
+.event-card {
+    border-top: 4px solid var(--color-brand);
+}
+
+.shop h2,
+.events h2,
+.about h2 {
+    color: var(--color-brand);
+}
+
+/* Footer */
+.site-footer {
+    background-color: var(--color-brand);
+    color: var(--color-background);
+}
+
+.site-footer a {
+    color: var(--color-accent);
+}
+
+.footer-bottom {
+    border-top-color: var(--color-accent);
+}
+
+/* Visible keyboard focus on dark backgrounds */
+.site-header a:focus-visible,
+.site-footer a:focus-visible {
+    outline-color: var(--color-accent);
+}
+
+.book-card,
+.event-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+@media (hover: hover) {
+    .book-card:hover,
+    .event-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 20px rgba(37, 77, 62, 0.15);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .book-card,
+    .event-card {
+        transition: none;
+    }
+
+    .book-card:hover,
+    .event-card:hover {
+        transform: none;
+    }
+}
