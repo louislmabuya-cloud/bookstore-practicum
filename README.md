@@ -1,38 +1,50 @@
-# bookstore-practicum
-An independent bookstore website for my frontend practicum
-
 # Boox Store
 
-A responsive, single-page website for an independent bookstore.
-Built for the frontend practicum using plain HTML and CSS.
+An independent bookstore website built for the frontend practicum.
 
-## Page sections
+## Current progress
 
-- Header with navigation links
-- Hero with a Browse books link
-- Book grid featuring fiction, nonfiction and staff picks
-- Events section
-- About section
-- Footer with contact details and opening hours
+Assignment 1 is implemented using HTML and CSS:
 
-## What I used
+- Responsive header and navigation
+- Hero section
+- Book grid with fiction, nonfiction and staff picks
+- Events and About sections
+- Footer with contact information and opening hours
+- Card hover effects and keyboard focus styles
 
-- Semantic HTML for the page structure
-- Flexbox for the header layout
-- CSS Grid for the books, events and footer
-- CSS variables for reusable colours
-- Media queries for responsive layouts
-- Hover effects and visible keyboard focus styles
+The current site is a static demonstration.
+Prices, contact details and opening hours are sample content.
 
-## How to view
+## Run the current version
 
-Download or clone this repository, then open index.html
-in a browser. You can also open the project in VS Code
-and use Live Server.
+Open index.html in a browser, or open the project in
+VS Code and use Live Server.
 
-## Project status
+## Assignment 2 plan
 
-The first HTML and CSS version is complete.
-This is a static demonstration, with no shopping cart
-or payment processing. Contact details, prices and
-opening hours are sample content.
+Rebuild the existing site with React and Tailwind,
+keeping the Boox Store content and visual design.
+
+- [ ] Set up Vite and React in this repository
+- [ ] Connect Tailwind
+- [ ] Create Header, Hero, main content and Footer components
+- [ ] Move book information into one array of objects
+- [ ] Render book cards from that data
+- [ ] Add a category filter using useState
+- [ ] Add a reusable controlled quantity stepper to each book
+- [ ] Rewrite responsive styling with Tailwind classes
+- [ ] Remove the old stylesheet once its styling is replaced
+- [ ] Check navigation, keyboard controls and screen sizes
+
+## Planned interactions
+
+The book filter will show All, Fiction, Nonfiction or Staff picks.
+
+Each book will have a quantity stepper with plus and minus buttons.
+The parent component will store the quantities in state.
+The stepper will receive its value and an onChange callback.
+
+## Assignment 2 status
+
+Planning complete. React and Tailwind implementation pending.
