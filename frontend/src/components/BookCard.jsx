@@ -1,4 +1,9 @@
+import { useState } from 'react'
+import QuantityStepper from './QuantityStepper.jsx'
+
 export default function BookCard({ book }) {
+  const [quantity, setQuantity] = useState(0)
+
   return (
     <article className="rounded-lg border border-[#ded8ce] bg-white p-4">
       <img
@@ -29,6 +34,11 @@ export default function BookCard({ book }) {
       <p className="mt-4 text-lg font-bold">
         ${book.price.toFixed(2)}
       </p>
+
+      <QuantityStepper
+        quantity={quantity}
+        onQuantityChange={setQuantity}
+      />
     </article>
   )
 }
