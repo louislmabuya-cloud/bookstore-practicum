@@ -1,50 +1,74 @@
 # Boox Store
 
-An independent bookstore website built for the frontend practicum.
+A fictional independent bookstore website built for the frontend practicum.
 
-## Current progress
+Assignment 2 rebuilds my original HTML and CSS site using React,
+Vite and Tailwind CSS. The React application is inside the frontend folder.
 
-Assignment 1 is implemented using HTML and CSS:
+## Features
 
 - Responsive header and navigation
-- Hero section
-- Book grid with fiction, nonfiction and staff picks
-- Events and About sections
-- Footer with contact information and opening hours
-- Card hover effects and keyboard focus styles
+- Hero section with a decorative background image
+- Catalogue of 20 books stored in one data file
+- Fiction and nonfiction category filtering
+- Staff pick badges
+- Reusable book cards and controlled quantity steppers
+- Events, About and a three-column responsive footer
 
-The current site is a static demonstration.
-Prices, contact details and opening hours are sample content.
+## Technologies
 
-## Run the current version
+- JavaScript
+- React
+- Vite
+- Tailwind CSS
 
-Open index.html in a browser, or open the project in
-VS Code and use Live Server.
+## Run locally
 
-## Assignment 2 plan
+Install Node.js and npm, then open a terminal in the repository folder.
 
-Rebuild the existing site with React and Tailwind,
-keeping the Boox Store content and visual design.
+```bash
+cd frontend
+npm install
+npm run dev
+```
 
-- [ ] Set up Vite and React in this repository
-- [ ] Connect Tailwind
-- [ ] Create Header, Hero, main content and Footer components
-- [ ] Move book information into one array of objects
-- [ ] Render book cards from that data
-- [ ] Add a category filter using useState
-- [ ] Add a reusable controlled quantity stepper to each book
-- [ ] Rewrite responsive styling with Tailwind classes
-- [ ] Remove the old stylesheet once its styling is replaced
-- [ ] Check navigation, keyboard controls and screen sizes
+Open the local URL printed in the terminal.
 
-## Planned interactions
+On Windows, use npm.cmd instead of npm if PowerShell blocks npm.ps1.
 
-The book filter will show All, Fiction, Nonfiction or Staff picks.
+## Code checks
 
-Each book will have a quantity stepper with plus and minus buttons.
-The parent component will store the quantities in state.
-The stepper will receive its value and an onChange callback.
+Run these commands from the frontend folder:
 
-## Assignment 2 status
+```bash
+npm run lint
+npm run build
+```
 
-Planning complete. React and Tailwind implementation pending.
+## Project organisation
+
+- frontend/src/components: reusable interface components
+- frontend/src/data/books.js: book catalogue
+- frontend/src/App.jsx: page composition
+- frontend/src/index.css: Tailwind import
+- frontend/public/images: book covers and hero image
+
+## React behaviour
+
+BookGrid stores the selected category using useState.
+It filters the books array and uses map to display the matching cards.
+
+Each BookCard stores its own quantity using useState.
+QuantityStepper receives that quantity and an update function through
+props, making it a controlled component.
+
+Quantities reset when the page reloads or when a book is filtered out
+and its card is later recreated.
+
+## Project scope
+
+This is a frontend demonstration with hardcoded data.
+It does not include checkout, payments or a backend.
+
+Prices, opening hours and contact details are sample information.
+Some book covers are generated SVG placeholders, not official covers.
