@@ -1,6 +1,21 @@
 export default function Hero() {
   return (
-    <section id="hero" className="px-5 py-16 text-center">
+    <section
+      id="hero"
+      className="relative isolate overflow-hidden px-5 py-20 text-center sm:py-28"
+    >
+      <img
+        src="/images/books-banner.jpg"
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 -z-20 h-full w-full scale-105 object-cover blur-[1px] grayscale"
+      />
+
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 -z-10 bg-[#faf7f0]/85"
+      />
+
       <p className="mb-4 text-sm font-bold">
         Welcome to Boox Store
       </p>

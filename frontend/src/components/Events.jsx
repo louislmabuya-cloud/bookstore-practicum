@@ -10,7 +10,11 @@ export default function Events() {
       </p>
 
       <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
-        <article className="rounded-lg border border-stone-300 bg-white p-6">
+        <article className="rounded-xl border border-b-4 border-stone-300 bg-white p-6 shadow-md transition duration-200 hover:shadow-xl motion-safe:hover:-translate-y-1 motion-reduce:transition-none">
+          <p className="mb-4 inline-block rounded-full bg-[#171717] px-3 py-1 text-xs font-bold text-[#faf7f0]">
+            Read and discuss
+          </p>
+
           <h3 className="text-xl font-bold">
             Saturday book club
           </h3>
@@ -25,7 +29,11 @@ export default function Events() {
           </p>
         </article>
 
-        <article className="rounded-lg border border-stone-300 bg-white p-6">
+        <article className="rounded-xl border border-b-4 border-stone-300 bg-[#eee7db] p-6 shadow-md transition duration-200 hover:shadow-xl motion-safe:hover:-translate-y-1 motion-reduce:transition-none">
+          <p className="mb-4 inline-block rounded-full bg-[#171717] px-3 py-1 text-xs font-bold text-[#faf7f0]">
+            For young readers
+          </p>
+
           <h3 className="text-xl font-bold">
             Sunday story time
           </h3>
