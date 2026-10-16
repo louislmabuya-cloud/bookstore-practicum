@@ -16,7 +16,7 @@ export default function Hero() {
         className="absolute inset-0 -z-10 bg-[#faf7f0]/85"
       />
 
-      <p className="mb-4 text-sm font-bold">
+      <p className="mb-4 text-sm font-bold ">
         Welcome to Boox Store
       </p>
 
@@ -31,7 +31,7 @@ export default function Hero() {
 
       <a
         href="#shop"
-        className="mt-8 inline-block rounded bg-black px-6 py-3 text-white hover:bg-[#333333]"
+        className="mt-8 inline-block rounded bg-black px-6 py-3 text-white hover:bg-slate-600 hover:scale-105 transition-all duration:500"
       >
         Browse books
       </a>
