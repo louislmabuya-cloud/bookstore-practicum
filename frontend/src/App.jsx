@@ -3,6 +3,7 @@ import Hero from './components/Hero.jsx'
 import BookGrid from './components/BookGrid.jsx'
 import Events from './components/Events.jsx'
 import About from './components/About.jsx'
+import Footer from './components/Footer.jsx'
 
 export default function App() {
   return (
@@ -15,6 +16,8 @@ export default function App() {
         <Events />
         <About />
       </main>
+
+      <Footer />
     </div>
   )
 }
