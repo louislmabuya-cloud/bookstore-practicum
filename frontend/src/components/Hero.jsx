@@ -4,19 +4,21 @@ export default function Hero() {
       id="hero"
       className="relative isolate overflow-hidden px-5 py-20 text-center sm:py-28"
     >
+      {/* Background image. Its centre is already blurred. */}
       <img
-        src="/images/books-banner.jpg"
+        src="/images/library-entrance.png"
         alt=""
         aria-hidden="true"
-        className="absolute inset-0 -z-20 h-full w-full scale-105 object-cover blur-[1px] grayscale"
+        className="absolute inset-0 -z-20 h-full w-full object-cover object-center"
       />
 
+      {/* A light cream overlay helps the black text stand out. */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-10 bg-[#faf7f0]/85"
+        className="absolute inset-0 -z-10 bg-[#faf7f0]/20"
       />
 
-      <p className="mb-4 text-sm font-bold ">
+      <p className="mb-4 text-sm font-bold">
         Welcome to Boox Store
       </p>
 
@@ -31,7 +33,7 @@ export default function Hero() {
 
       <a
         href="#shop"
-        className="mt-8 inline-block rounded bg-black px-6 py-3 text-white hover:bg-slate-600 hover:scale-105 transition-all duration:500"
+        className="mt-8 inline-block rounded bg-black px-6 py-3 text-white hover:bg-slate-600 hover:scale-105 transition-all duration-500"
       >
         Browse books
       </a>

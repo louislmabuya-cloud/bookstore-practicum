@@ -34,7 +34,7 @@ export default function Footer() {
               href="mailto:hello@booxstore.example"
               className="mt-4 inline-block break-all underline underline-offset-4 hover:text-white"
             >
-              hello@booxstore.com
+              hello@booxstore.example
             </a>
           </div>
 
