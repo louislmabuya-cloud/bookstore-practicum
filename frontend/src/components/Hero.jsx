@@ -15,7 +15,7 @@ export default function Hero() {
       {/* A light cream overlay helps the black text stand out. */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-10 bg-[#faf7f0]/20"
+        className="absolute inset-0 -z-10 bg-[#F2E6D2]/20"
       />
 
       <p className="mb-4 text-sm font-bold">
@@ -33,7 +33,7 @@ export default function Hero() {
 
       <a
         href="#shop"
-        className="mt-8 inline-block rounded bg-black px-6 py-3 text-white hover:bg-slate-600 hover:scale-105 transition-all duration-500"
+        className="mt-8 inline-block rounded bg-[#35251C] px-6 py-3 text-[#FFF8EC] hover:bg-[#513A2A] hover:scale-105 transition-all duration-500"
       >
         Browse books
       </a>

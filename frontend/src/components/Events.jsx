@@ -5,13 +5,13 @@ export default function Events() {
         Events at Boox Store
       </h2>
 
-      <p className="mt-4 text-stone-600">
+      <p className="mt-4 text-[#6B5746]">
         Meet other readers and discover something new.
       </p>
 
       <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
-        <article className="rounded-xl border border-b-4 border-stone-300 bg-white p-6 shadow-md transition duration-200 hover:shadow-xl motion-safe:hover:-translate-y-1 motion-reduce:transition-none">
-          <p className="mb-4 inline-block rounded-full bg-[#171717] px-3 py-1 text-xs font-bold text-[#faf7f0]">
+        <article className="rounded-xl border border-b-4 border-[#CDB99A] bg-[#FFF8EC] p-6 shadow-md transition duration-200 hover:shadow-xl motion-safe:hover:-translate-y-1 motion-reduce:transition-none">
+          <p className="mb-4 inline-block rounded-full bg-[#35251C] px-3 py-1 text-xs font-bold text-[#F2E6D2]">
             Read and discuss
           </p>
 
@@ -23,14 +23,14 @@ export default function Events() {
             Saturdays at 10:00
           </p>
 
-          <p className="mt-4 leading-relaxed text-stone-600">
+          <p className="mt-4 leading-relaxed text-[#6B5746]">
             Bring your current read and join a relaxed conversation
             about books.
           </p>
         </article>
 
-        <article className="rounded-xl border border-b-4 border-stone-300 bg-[#eee7db] p-6 shadow-md transition duration-200 hover:shadow-xl motion-safe:hover:-translate-y-1 motion-reduce:transition-none">
-          <p className="mb-4 inline-block rounded-full bg-[#171717] px-3 py-1 text-xs font-bold text-[#faf7f0]">
+        <article className="rounded-xl border border-b-4 border-[#CDB99A] bg-[#E6D5B8] p-6 shadow-md transition duration-200 hover:shadow-xl motion-safe:hover:-translate-y-1 motion-reduce:transition-none">
+          <p className="mb-4 inline-block rounded-full bg-[#35251C] px-3 py-1 text-xs font-bold text-[#F2E6D2]">
             For young readers
           </p>
 
@@ -42,7 +42,7 @@ export default function Events() {
             Sundays at 11:00
           </p>
 
-          <p className="mt-4 leading-relaxed text-stone-600">
+          <p className="mt-4 leading-relaxed text-[#6B5746]">
             A morning of stories for young readers and their families.
           </p>
         </article>

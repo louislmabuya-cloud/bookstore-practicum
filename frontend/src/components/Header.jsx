@@ -12,7 +12,7 @@ export default function Header() {
 
   return (
     // SHARED: background, spacing and text colours for all screens.
-    <header className="bg-[#171717] p-5 text-[#faf7f0]">
+    <header className="bg-[#35251C] p-5 text-[#F2E6D2]">
       <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4">
 
         {/* SHARED: the logo appears on mobile and desktop. */}
@@ -22,7 +22,7 @@ export default function Header() {
           aria-label="Boox Store home"
           className="text-2xl font-bold"
         >
-          B<span className="rounded-full bg-white px-1 text-black">oo</span>x Store
+          B<span className="rounded-full bg-[#FFF8EC] px-1 text-[#30241C]">oo</span>x Store
         </a>
 
         {/*
@@ -36,7 +36,7 @@ export default function Header() {
           aria-expanded={menuOpen}
           aria-controls="main-navigation"
           aria-label={menuOpen ? 'Close navigation' : 'Open navigation'}
-          className="flex h-11 w-11 items-center justify-center rounded border border-stone-600 hover:bg-stone-800 sm:hidden"
+          className="flex h-11 w-11 items-center justify-center rounded border border-[#80664F] hover:bg-[#513A2A] sm:hidden"
         >
           {/* MOBILE: show a cross when open, or a hamburger when closed. */}
           <span aria-hidden="true" className="text-2xl">

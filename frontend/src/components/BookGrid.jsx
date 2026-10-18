@@ -24,7 +24,7 @@ export default function BookGrid() {
           id="category"
           value={category}
           onChange={(event) => setCategory(event.target.value)}
-          className="w-full rounded border border-[#ded8ce] bg-white p-3 sm:w-64"
+          className="w-full rounded border border-[#CDB99A] bg-[#FFF8EC] p-3 sm:w-64"
         >
           <option value="All">All books</option>
           <option value="Fiction">Fiction</option>

@@ -5,8 +5,8 @@ export default function BookCard({ book }) {
   const [quantity, setQuantity] = useState(0)
 
   return (
-    <article className="rounded-xl border border-b-4 border-stone-300 bg-white p-5 shadow-md transition duration-200 hover:shadow-xl motion-safe:hover:-translate-y-1 motion-reduce:transition-none">
-      <div className="rounded-lg bg-[#faf7f0] p-3">
+    <article className="rounded-xl border border-b-4 border-[#CDB99A] bg-[#FFF8EC] p-5 shadow-md transition duration-200 hover:shadow-xl motion-safe:hover:-translate-y-1 motion-reduce:transition-none">
+      <div className="rounded-lg bg-[#F2E6D2] p-3">
         <img
           src={book.image}
           alt={book.title + ' book cover'}
@@ -19,7 +19,7 @@ export default function BookCard({ book }) {
         {book.title}
       </h3>
 
-      <p className="mt-1 text-sm text-stone-600">
+      <p className="mt-1 text-sm text-[#6B5746]">
         {book.author}
       </p>
 
@@ -28,7 +28,7 @@ export default function BookCard({ book }) {
       </p>
 
       {book.staffPick && (
-        <span className="mt-2 inline-block rounded-full bg-[#171717] px-3 py-1 text-xs font-bold text-[#faf7f0]">
+        <span className="mt-2 inline-block rounded-full bg-[#35251C] px-3 py-1 text-xs font-bold text-[#F2E6D2]">
           Staff pick
         </span>
       )}

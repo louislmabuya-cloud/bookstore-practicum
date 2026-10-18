@@ -6,7 +6,7 @@ export default function QuantityStepper({ quantity, onQuantityChange }) {
         onClick={() => onQuantityChange(quantity - 1)}
         disabled={quantity === 0}
         aria-label="Decrease quantity"
-        className="rounded border px-3 py-1 hover:bg-stone-100 disabled:cursor-not-allowed disabled:opacity-40"
+        className="rounded border px-3 py-1 hover:bg-[#E6D5B8] disabled:cursor-not-allowed disabled:opacity-40"
       >
         −
       </button>
@@ -19,7 +19,7 @@ export default function QuantityStepper({ quantity, onQuantityChange }) {
         type="button"
         onClick={() => onQuantityChange(quantity + 1)}
         aria-label="Increase quantity"
-        className="rounded border px-3 py-1 hover:bg-stone-100"
+        className="rounded border px-3 py-1 hover:bg-[#E6D5B8]"
       >
         +
       </button>
