@@ -7,7 +7,7 @@ import Footer from './components/Footer.jsx'
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-[#F2E6D2] text-[#35251C]">
+    <div className="min-h-screen bg-[#F2E6D2] text-[#30241C]">
       <Header />
 
       <main>
