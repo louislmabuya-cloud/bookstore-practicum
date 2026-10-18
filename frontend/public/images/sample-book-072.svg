@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="540" viewBox="0 0 360 540" role="img" aria-labelledby="title desc">
+<title id="title">The Last Light in the Silver Forest</title><desc id="desc">Original sample cover for a fictional Boox Store catalogue entry.</desc>
+<rect width="360" height="540" fill="#F2E6D2"/><rect x="17" y="17" width="326" height="506" fill="none" stroke="#A67D53"/>
+<rect x="24" y="24" width="4" height="492" fill="#A67D53" opacity=".5"/>
+<text x="180" y="58" text-anchor="middle" font-family="sans-serif" font-size="10" letter-spacing="3" fill="#35251C">BOOX SAMPLE EDITIONS</text>
+<text x="180" y="106" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif" font-size="26" font-weight="bold" fill="#35251C"><tspan x="180" dy="0">The Last Light in</tspan><tspan x="180" dy="33">the Silver Forest</tspan></text>
+<g fill="#A67D53" stroke="#A67D53"><circle cx="180" cy="319" r="77" fill="none" stroke-width="2"/><circle cx="180" cy="319" r="51" fill="none" stroke-width="2"/><path d="M180 224 L205 294 L275 319 L205 344 L180 414 L155 344 L85 319 L155 294 Z"/></g>
+<path d="M115 442 H245" stroke="#A67D53"/>
+<text x="180" y="473" text-anchor="middle" font-family="sans-serif" font-size="17" fill="#35251C">Adam Waverly</text>
+<text x="180" y="501" text-anchor="middle" font-family="sans-serif" font-size="10" letter-spacing="2" fill="#35251C">FICTION / 072</text>
+</svg>

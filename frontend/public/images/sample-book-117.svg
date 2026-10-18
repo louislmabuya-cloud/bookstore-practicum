@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="540" viewBox="0 0 360 540" role="img" aria-labelledby="title desc">
+<title id="title">A Beginner’s Guide to Better Learning</title><desc id="desc">Original sample cover for a fictional Boox Store catalogue entry.</desc>
+<rect width="360" height="540" fill="#35251C"/><rect x="17" y="17" width="326" height="506" fill="none" stroke="#CDB99A"/>
+<rect x="24" y="24" width="4" height="492" fill="#CDB99A" opacity=".5"/>
+<text x="180" y="58" text-anchor="middle" font-family="sans-serif" font-size="10" letter-spacing="3" fill="#FFF8EC">BOOX SAMPLE EDITIONS</text>
+<text x="180" y="106" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif" font-size="26" font-weight="bold" fill="#FFF8EC"><tspan x="180" dy="0">A Beginner’s</tspan><tspan x="180" dy="33">Guide to Better</tspan><tspan x="180" dy="33">Learning</tspan></text>
+<g fill="#CDB99A" stroke="#CDB99A"><circle cx="180" cy="322" r="72"/><path d="M70 398 L180 240 L290 398 Z" fill="none" stroke-width="3"/></g>
+<path d="M115 442 H245" stroke="#CDB99A"/>
+<text x="180" y="473" text-anchor="middle" font-family="sans-serif" font-size="17" fill="#FFF8EC">Zara Ellery</text>
+<text x="180" y="501" text-anchor="middle" font-family="sans-serif" font-size="10" letter-spacing="2" fill="#FFF8EC">NONFICTION / 117</text>
+</svg>

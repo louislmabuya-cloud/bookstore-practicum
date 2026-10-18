@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="540" viewBox="0 0 360 540" role="img" aria-labelledby="title desc">
+<title id="title">A Summer at the Copper Island</title><desc id="desc">Original sample cover for a fictional Boox Store catalogue entry.</desc>
+<rect width="360" height="540" fill="#685747"/><rect x="17" y="17" width="326" height="506" fill="none" stroke="#E6D5B8"/>
+<rect x="24" y="24" width="4" height="492" fill="#E6D5B8" opacity=".5"/>
+<text x="180" y="58" text-anchor="middle" font-family="sans-serif" font-size="10" letter-spacing="3" fill="#FFF8EC">BOOX SAMPLE EDITIONS</text>
+<text x="180" y="106" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif" font-size="26" font-weight="bold" fill="#FFF8EC"><tspan x="180" dy="0">A Summer at the</tspan><tspan x="180" dy="33">Copper Island</tspan></text>
+<g fill="#E6D5B8" stroke="#E6D5B8"><path d="M180 404 V240 M180 290 Q110 290 110 250 Q180 250 180 290 M180 335 Q250 335 250 295 Q180 295 180 335 M180 380 Q110 380 110 340 Q180 340 180 380" fill="none" stroke-width="4"/></g>
+<path d="M115 442 H245" stroke="#E6D5B8"/>
+<text x="180" y="473" text-anchor="middle" font-family="sans-serif" font-size="17" fill="#FFF8EC">Clara Moss</text>
+<text x="180" y="501" text-anchor="middle" font-family="sans-serif" font-size="10" letter-spacing="2" fill="#FFF8EC">FICTION / 061</text>
+</svg>

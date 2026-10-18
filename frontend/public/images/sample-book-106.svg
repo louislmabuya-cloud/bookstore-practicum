@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="540" viewBox="0 0 360 540" role="img" aria-labelledby="title desc">
+<title id="title">Return to the Copper Island</title><desc id="desc">Original sample cover for a fictional Boox Store catalogue entry.</desc>
+<rect width="360" height="540" fill="#E6D5B8"/><rect x="17" y="17" width="326" height="506" fill="none" stroke="#80664F"/>
+<rect x="24" y="24" width="4" height="492" fill="#80664F" opacity=".5"/>
+<text x="180" y="58" text-anchor="middle" font-family="sans-serif" font-size="10" letter-spacing="3" fill="#35251C">BOOX SAMPLE EDITIONS</text>
+<text x="180" y="106" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif" font-size="26" font-weight="bold" fill="#35251C"><tspan x="180" dy="0">Return to the</tspan><tspan x="180" dy="33">Copper Island</tspan></text>
+<g fill="#80664F" stroke="#80664F"><path d="M100 406 V304 A80 80 0 0 1 260 304 V406 Z" fill="none" stroke-width="5"/><path d="M127 406 V310 A53 53 0 0 1 233 310 V406" fill="none" stroke-width="2"/><circle cx="180" cy="292" r="16"/></g>
+<path d="M115 442 H245" stroke="#80664F"/>
+<text x="180" y="473" text-anchor="middle" font-family="sans-serif" font-size="17" fill="#35251C">Toby Langley</text>
+<text x="180" y="501" text-anchor="middle" font-family="sans-serif" font-size="10" letter-spacing="2" fill="#35251C">FICTION / 106</text>
+</svg>
