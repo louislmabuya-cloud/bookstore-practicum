@@ -22,3 +22,13 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Installed packages
+node_modules/
+
+# Private environment settings
+.env
+.env.*
+
+# Safe template containing placeholders only
+!.env.example

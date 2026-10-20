@@ -1,0 +1,12 @@
+# Installed packages
+node_modules/
+
+# Build output
+dist/
+
+# Private environment settings
+.env
+.env.*
+
+# Allow a template with no real secrets
+!.env.example
