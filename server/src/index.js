@@ -1,5 +1,7 @@
 // Load the Express package we installed.
 import express from 'express'
+import { db } from './db/index.js'
+import { books } from './db/schema.js'
 
 // Create our Express application.
 const app = express()
@@ -13,6 +15,30 @@ app.get('/api/health', (req, res) => {
     ok: true,
     message: 'Boox Store server is running',
   })
+})
+
+// Return all books stored in the database
+app.get('/api/books', async (req, res) => {
+  try {
+    // Read the books, ordered by their IDs
+    const allBooks = await db
+      .select()
+      .from(books)
+      .orderBy(books.id)
+
+    // Send the resulting array to the browser as JSON
+    res.json(allBooks)
+  } catch (error) {
+    console.error(
+      'Could not fetch books:',
+      error.cause?.code ?? error.code ?? 'Unknown'
+    )
+
+    // Tell the browser that the request failed
+    res.status(500).json({
+      error: 'Could not load books. Please try again.',
+    })
+  }
 })
 
 // Start listening for requests.
