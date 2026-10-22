@@ -16,7 +16,7 @@ export const auth = betterAuth({
 
   // Read settings from server/.env
   secret: process.env.BETTER_AUTH_SECRET,
-  baseURL: process.env.BETTER_AUTH_URL,
+  baseURL: process.env.RENDER_EXTERNAL_URL || process.env.BETTER_AUTH_URL,
 
   // Use our PostgreSQL database through Drizzle
   database: drizzleAdapter(db, {
@@ -31,5 +31,7 @@ export const auth = betterAuth({
   },
 
   // Allow authentication requests from our frontend
-  trustedOrigins: [process.env.CLIENT_URL],
+  trustedOrigins: [
+  process.env.RENDER_EXTERNAL_URL || process.env.CLIENT_URL,
+],
 })
