@@ -2,9 +2,14 @@
 import express from 'express'
 import { db } from './db/index.js'
 import { books } from './db/schema.js'
+import { toNodeHandler } from 'better-auth/node'
+import { auth } from './auth.js'
 
 // Create our Express application.
 const app = express()
+
+// Express sends authentication requests to Better Auth
+app.all('/api/auth/*splat', toNodeHandler(auth))
 
 // Use the hosting provider's port, or 3000 on our laptop.
 const PORT = Number(process.env.PORT || 3000)

@@ -28,3 +28,11 @@ export const books = pgTable('books', {
   staffPick: boolean('staff_pick').default(false).notNull(),
   featured: boolean('featured').default(false).notNull(),
 })
+
+// Make the authentication tables available through this schema file
+export {
+  user,
+  session,
+  account,
+  verification,
+} from './auth-schema.js'
