@@ -5,6 +5,9 @@ import { books } from './db/schema.js'
 import { toNodeHandler } from 'better-auth/node'
 import { auth } from './auth.js'
 
+// Node.js helper: convert a file URL into a filesystem path
+import { fileURLToPath } from 'node:url'
+
 // Create our Express application.
 const app = express()
 
@@ -45,6 +48,14 @@ app.get('/api/books', async (req, res) => {
     })
   }
 })
+
+// Locate the finished React website
+const frontendPath = fileURLToPath(
+  new URL('../../frontend/dist/', import.meta.url)
+)
+
+// Express serves the website, images, CSS and browser JavaScript
+app.use(express.static(frontendPath))
 
 // Start listening for requests.
 app.listen(PORT, () => {
