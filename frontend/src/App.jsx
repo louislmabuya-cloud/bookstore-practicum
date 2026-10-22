@@ -4,6 +4,7 @@ import BookGrid from './components/BookGrid.jsx'
 import Events from './components/Events.jsx'
 import About from './components/About.jsx'
 import Footer from './components/Footer.jsx'
+import AccountSection from './components/AccountSection.jsx'
 
 export default function App() {
   return (
@@ -12,6 +13,7 @@ export default function App() {
 
       <main>
         <Hero />
+        <AccountSection />
         <BookGrid />
         <Events />
         <About />
