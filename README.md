@@ -72,3 +72,13 @@ It does not include checkout, payments or a backend.
 
 Prices, opening hours and contact details are sample information.
 Some book covers are generated SVG placeholders, not official covers.
+
+## Live website
+
+https://bookstore-practicum.onrender.com
+
+Built with React, Tailwind CSS, Express, PostgreSQL,
+Drizzle ORM and Better Auth. Hosted on Render with Neon.
+
+Features include a database-backed book catalogue,
+category filtering, pagination, signup, login and persistent sessions.
