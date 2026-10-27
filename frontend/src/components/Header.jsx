@@ -1,9 +1,11 @@
 import { useState } from 'react'
+import { useCart } from '../context/cart-context.js'
 
 export default function Header() {
   // MOBILE: remembers whether the hamburger menu is open.
   // false means it starts closed.
   const [menuOpen, setMenuOpen] = useState(false)
+  const { itemCount } = useCart()
 
   // Closes the mobile menu after a navigation link is clicked.
   function closeMenu() {
@@ -109,6 +111,15 @@ export default function Header() {
                 className="block py-2 hover:underline"
               >
                 About
+              </a>
+            </li>
+            <li>
+              <a
+                href="#cart"
+                onClick={closeMenu}
+                className="block py-2 hover:underline"
+              >
+                Cart ({itemCount})
               </a>
             </li>
           </ul>

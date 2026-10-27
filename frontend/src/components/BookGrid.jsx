@@ -1,55 +1,11 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import BookCard from './BookCard.jsx'
 
-export default function BookGrid() {
+export default function BookGrid({ books, loading, error }) {
   // React remembers these three choices between renders.
   const [category, setCategory] = useState('All')
   const [showAll, setShowAll] = useState(false)
   const [page, setPage] = useState(1)
-
-  // Start empty, then store the books received from our API
-const [books, setBooks] = useState([])
-const [loading, setLoading] = useState(true)
-const [error, setError] = useState('')
-
-useEffect(() => {
-  const controller = new AbortController()
-
-  async function loadBooks() {
-    try {
-      // Ask Express for the books
-      const response = await fetch('/api/books', {
-        signal: controller.signal,
-      })
-
-      // A server error response must be handled as a failure
-      if (!response.ok) {
-        throw new Error('Could not load books. Please refresh to try again.')
-      }
-
-      // Convert the JSON response into JavaScript data
-      const data = await response.json()
-
-      if (!controller.signal.aborted) {
-        setBooks(data)
-      }
-    } catch (error) {
-      if (!controller.signal.aborted) {
-        setError('Could not load books. Please refresh to try again.')
-        console.error('Book request failed:', error.message)
-      }
-    } finally {
-      if (!controller.signal.aborted) {
-        setLoading(false)
-      }
-    }
-  }
-
-  loadBooks()
-
-  // Cancel an unfinished request if this component is removed
-  return () => controller.abort()
-}, [])
 
   const booksPerPage = 20
 
@@ -89,20 +45,20 @@ useEffect(() => {
   }
 
   if (loading) {
-  return (
-    <section id="shop" className="mx-auto max-w-6xl px-5 py-12 text-[#35251C]">
-      <p role="status">Loading our books...</p>
-    </section>
-  )
-}
+    return (
+      <section id="shop" className="mx-auto max-w-6xl px-5 py-12 text-[#35251C]">
+        <p role="status">Loading our books...</p>
+      </section>
+    )
+  }
 
-if (error) {
-  return (
-    <section id="shop" className="mx-auto max-w-6xl px-5 py-12 text-[#35251C]">
-      <p role="alert">{error}</p>
-    </section>
-  )
-}
+  if (error) {
+    return (
+      <section id="shop" className="mx-auto max-w-6xl px-5 py-12 text-[#35251C]">
+        <p role="alert">{error}</p>
+      </section>
+    )
+  }
 
   return (
     <section id="shop" className="mx-auto max-w-6xl scroll-mt-24 px-5 py-12 text-[#35251C]">

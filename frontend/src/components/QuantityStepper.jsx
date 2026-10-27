@@ -1,11 +1,15 @@
-export default function QuantityStepper({ quantity, onQuantityChange }) {
+export default function QuantityStepper({
+  quantity,
+  onQuantityChange,
+  label = 'item',
+}) {
   return (
     <div className="mt-4 flex items-center gap-3">
       <button
         type="button"
         onClick={() => onQuantityChange(quantity - 1)}
         disabled={quantity === 0}
-        aria-label="Decrease quantity"
+        aria-label={`Remove one ${label}`}
         className="rounded border px-3 py-1 hover:bg-[#E6D5B8] disabled:cursor-not-allowed disabled:opacity-40"
       >
         −
@@ -18,7 +22,7 @@ export default function QuantityStepper({ quantity, onQuantityChange }) {
       <button
         type="button"
         onClick={() => onQuantityChange(quantity + 1)}
-        aria-label="Increase quantity"
+        aria-label={`Add one ${label}`}
         className="rounded border px-3 py-1 hover:bg-[#E6D5B8]"
       >
         +
