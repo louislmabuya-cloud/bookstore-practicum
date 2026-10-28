@@ -4,6 +4,7 @@ import { db } from './db/index.js'
 import { books } from './db/schema.js'
 import { toNodeHandler } from 'better-auth/node'
 import { auth } from './auth.js'
+import checkoutRoutes from './checkout-routes.js'
 
 // Node.js helper: convert a file URL into a filesystem path
 import { fileURLToPath } from 'node:url'
@@ -13,6 +14,7 @@ const app = express()
 
 // Express sends authentication requests to Better Auth
 app.all('/api/auth/*splat', toNodeHandler(auth))
+app.use('/api', checkoutRoutes)
 
 // Use the hosting provider's port, or 3000 on our laptop.
 const PORT = Number(process.env.PORT || 3000)

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import { CartContext } from './cart-context.js'
 
 const CART_STORAGE_KEY = 'boox-store-cart'
@@ -92,9 +92,9 @@ export function CartProvider({ children }) {
     saveItems(items.filter((item) => item.bookId !== bookId))
   }
 
-  function clearCart() {
+  const clearCart = useCallback(() => {
     saveItems([])
-  }
+  }, [])
 
   const itemCount = items.reduce((total, item) => total + item.quantity, 0)
 

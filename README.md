@@ -9,10 +9,11 @@ Vite and Tailwind CSS. The React application is inside the frontend folder.
 
 - Responsive header and navigation
 - Hero section with a decorative background image
-- Catalogue of 20 books stored in one data file
+- Catalogue of 200 books stored in one data file
 - Fiction and nonfiction category filtering
 - Staff pick badges
-- Reusable book cards and controlled quantity steppers
+- Reusable book cards and a browser-saved shopping cart
+- Signed-in Stripe Checkout (test mode until live keys are configured)
 - Events, About and a three-column responsive footer
 
 ## Technologies
@@ -21,10 +22,23 @@ Vite and Tailwind CSS. The React application is inside the frontend folder.
 - React
 - Vite
 - Tailwind CSS
+- Express
+- PostgreSQL and Drizzle ORM
+- Better Auth
+- Stripe Checkout
 
 ## Run locally
 
-Install Node.js and npm, then open a terminal in the repository folder.
+Install Node.js and npm. Configure the database and authentication values in
+`server/.env` using `server/.env.example` as a template.
+
+```bash
+cd server
+npm install
+npm run dev
+```
+
+In a second terminal:
 
 ```bash
 cd frontend
@@ -32,7 +46,8 @@ npm install
 npm run dev
 ```
 
-Open the local URL printed in the terminal.
+Open the frontend URL printed in the second terminal. To enable checkout,
+follow the [checkout setup](#checkout-setup) steps below.
 
 On Windows, use npm.cmd instead of npm if PowerShell blocks npm.ps1.
 
@@ -44,6 +59,33 @@ Run these commands from the frontend folder:
 npm run lint
 npm run build
 ```
+
+## Checkout setup
+
+The cart is saved in the current browser. Checkout requires a signed-in user
+and sends the customer to Stripe-hosted Checkout. The server looks up book
+prices in PostgreSQL, creates a pending order, and marks it paid only after a
+valid Stripe webhook confirms the payment. This demo uses USD and does not add
+shipping or tax. After payment is verified, a full-page confirmation stays on
+screen until the customer chooses to continue browsing.
+
+To run checkout locally:
+
+1. Apply `server/src/db/migrations/0001_create_orders.sql` in the PostgreSQL
+   database if the `orders` and `order_items` tables do not already exist.
+2. Create a Stripe account and use its test-mode secret key. Put it and the
+   webhook signing secret in `server/.env` as `STRIPE_SECRET_KEY` and
+   `STRIPE_WEBHOOK_SECRET`. Do not commit or share these secrets.
+3. Use Stripe CLI to forward test webhooks to
+   `http://localhost:3000/api/stripe/webhook`, then copy its printed `whsec_...`
+   value into `STRIPE_WEBHOOK_SECRET`.
+4. In one terminal run `cd server` then `npm run dev`. In another run
+   `cd frontend` then `npm run dev`.
+5. Sign in, add a book, and use Stripe's test card
+   `4242 4242 4242 4242` with any future expiry date and any CVC.
+
+See [the checkout guide](./docs/stripe-checkout-guide.pdf) for the full setup
+and code walkthrough.
 
 ## Project organisation
 
@@ -58,17 +100,15 @@ npm run build
 BookGrid stores the selected category using useState.
 It filters the books array and uses map to display the matching cards.
 
-Each BookCard stores its own quantity using useState.
-QuantityStepper receives that quantity and an update function through
-props, making it a controlled component.
-
-Quantities reset when the page reloads or when a book is filtered out
-and its card is later recreated.
+CartContext shares cart quantities between book cards, the header, and the
+cart section. It saves only book IDs and quantities in browser localStorage;
+prices are looked up from the server catalogue.
 
 ## Project scope
 
-This is a frontend demonstration with hardcoded data.
-It does not include checkout, payments or a backend.
+This is a bookstore practicum with a database-backed catalogue, accounts,
+browser-saved cart, and Stripe Checkout integration. Checkout requires server
+configuration and a working webhook; local test mode does not move real money.
 
 Prices, opening hours and contact details are sample information.
 Some book covers are generated SVG placeholders, not official covers.
