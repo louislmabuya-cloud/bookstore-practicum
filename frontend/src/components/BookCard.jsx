@@ -1,7 +1,8 @@
 import { useCart } from '../context/cart-context.js'
 
 export default function BookCard({ book }) {
-  const { addItem } = useCart()
+  const { items, addItem } = useCart()
+  const quantity = items.find((item) => item.bookId === book.id)?.quantity ?? 0
 
   return (
     <article className="rounded-xl border border-b-4 border-[#CDB99A] bg-[#FFF8EC] p-5 shadow-md transition duration-200 hover:shadow-xl motion-safe:hover:-translate-y-1 motion-reduce:transition-none">
@@ -41,7 +42,7 @@ export default function BookCard({ book }) {
         onClick={() => addItem(book.id)}
         className="mt-4 w-full rounded-lg bg-[#35251C] px-4 py-3 font-bold text-[#FFF8EC] hover:bg-[#513A2A] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#35251C]"
       >
-        Add to cart
+        Add to cart <span aria-live="polite">(x{quantity})</span>
       </button>
     </article>
   )
