@@ -1,6 +1,6 @@
 import { db, client } from './index.js'
 import { books } from './schema.js'
-import { books as bookData } from '../data/books.js'
+import { books as bookData } from '../../../frontend/src/data/books.js'
 import { sql } from 'drizzle-orm'
 
 try {
