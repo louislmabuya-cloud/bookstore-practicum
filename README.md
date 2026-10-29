@@ -12,6 +12,7 @@ Vite and Tailwind CSS. The React application is inside the frontend folder.
 - Catalogue of 200 books stored in one data file
 - Fiction and nonfiction category filtering
 - Staff pick badges
+- Selectable book details with descriptions, category, price, and author
 - Reusable book cards and a browser-saved shopping cart
 - Signed-in Stripe Checkout (test mode until live keys are configured)
 - Events, About and a three-column responsive footer
@@ -83,6 +84,16 @@ To run checkout locally:
    `cd frontend` then `npm run dev`.
 5. Sign in, add a book, and use Stripe's test card
    `4242 4242 4242 4242` with any future expiry date and any CVC.
+
+## Book descriptions and details
+
+Book cards open a details dialog with the book's description, author, category,
+price, and catalogue selection badge. After applying
+`server/src/db/migrations/0002_add_book_descriptions.sql`, run
+`node src/db/seed.js` from the `server` folder to populate or refresh
+descriptions for existing books. See
+[the code explanation](./docs/book-details-code-explained.md) for how the
+feature works.
 
 See [the checkout guide](./docs/stripe-checkout-guide.pdf) for the full setup
 and code walkthrough.

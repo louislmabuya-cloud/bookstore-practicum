@@ -19,6 +19,7 @@ export const books = pgTable('books', {
   title: text('title').notNull(),
   author: text('author').notNull(),
   category: text('category').notNull(),
+  description: text('description').notNull(),
 
   // Store prices with two decimal places
   price: numeric('price', {

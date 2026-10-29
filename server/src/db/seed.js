@@ -1,18 +1,22 @@
 import { db, client } from './index.js'
 import { books } from './schema.js'
 import { books as bookData } from '../data/books.js'
+import { sql } from 'drizzle-orm'
 
 try {
-  // Insert the book objects into the books table
-  const insertedBooks = await db
+  // Insert new books and refresh the descriptions of books already in the database
+  const upsertedBooks = await db
     .insert(books)
     .values(bookData)
-    .onConflictDoNothing({ target: books.id })
+    .onConflictDoUpdate({
+      target: books.id,
+      set: { description: sql`excluded.description` },
+    })
     .returning({ id: books.id })
 
   console.log('Seeding finished!')
   console.log('Books in the seed file:', bookData.length)
-  console.log('New books inserted:', insertedBooks.length)
+  console.log('Books inserted or updated:', upsertedBooks.length)
 } catch (error) {
   console.error('Seeding failed.')
 

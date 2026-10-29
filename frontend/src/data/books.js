@@ -1,7 +1,106 @@
 // The first 20 entries are preserved from your existing catalogue.
 // Entries 21–200 are fictional sample books with original SVG covers.
 // featured controls the homepage selection; staffPick controls the badge.
-export const books = [
+const bookDescriptions = {
+  1: 'Nora Seed discovers a library between life and death where each book opens onto a different version of her life. Her journeys explore regret, possibility, and what makes a life meaningful.',
+  2: 'A practical guide to building helpful routines and changing behaviour through small, consistent improvements.',
+  3: 'A comfort-loving hobbit is drawn into a dangerous journey with a band of dwarves, discovering courage and adventure far beyond home.',
+  4: 'Tara Westover reflects on growing up in an isolated family and finding education, independence, and a new understanding of her past.',
+  5: 'A young shepherd travels in search of treasure and discovers lessons about purpose, courage, and following a personal dream.',
+  6: 'In a society shaped by surveillance and state control, Winston Smith struggles to hold on to truth, independent thought, and personal freedom.',
+  7: 'Elizabeth Bennet navigates family expectations, social class, and first impressions as she searches for a relationship built on mutual respect.',
+  8: 'Through a child’s perspective on life in Alabama, this novel explores empathy, prejudice, and the pursuit of justice.',
+  9: 'Set among the wealth and social ambition of the Jazz Age, this novel examines reinvention, longing, and the limits of the American dream.',
+  10: 'After farm animals rebel against their human owner, their new society becomes a sharp fable about power, inequality, and political corruption.',
+  11: 'A stranded pilot meets a thoughtful young visitor from another world in a story about friendship, imagination, and seeing what matters.',
+  12: 'On the desert planet Arrakis, political conflict, ecology, and the fate of a young heir converge in an expansive science-fiction adventure.',
+  13: 'A young girl in wartime Germany finds comfort and connection in books while confronting loss, courage, and the power of stories.',
+  14: 'Cal Newport offers strategies for protecting attention and making time for focused, demanding work in a world full of distractions.',
+  15: 'Morgan Housel uses memorable examples to explore how emotions, personal experience, and behaviour shape financial decisions.',
+  16: 'Simon Sinek explores how a clear sense of purpose can guide leaders, teams, and organisations.',
+  17: 'Charles Duhigg examines how habits form and how understanding their patterns can help people and organisations change them.',
+  18: 'Daniel Kahneman explains two modes of thinking and how they influence judgment, decision-making, and common mental biases.',
+  19: 'Yuval Noah Harari surveys human history, from early societies to modern life, and considers the forces that shaped our world.',
+  20: 'Viktor Frankl reflects on his experiences and explores how meaning, responsibility, and inner resilience can help people face hardship.',
+}
+
+function describeBook(book) {
+  if (bookDescriptions[book.id]) {
+    return bookDescriptions[book.id]
+  }
+
+  if (book.category === 'Fiction') {
+    const setting = book.title.replace(
+      /^(Letters from|The Secret of|A Summer at|The Last Light in|Beyond|Return to)\s+/,
+      '',
+    )
+
+    if (book.title.startsWith('Letters from')) {
+      return `A story told through messages connected to ${setting}, where old memories and new discoveries draw the characters into an unexpected mystery.`
+    }
+
+    if (book.title.startsWith('The Secret of')) {
+      return `A hidden mystery waits in ${setting}. Follow the clues as its visitors uncover long-buried secrets and decide what to do with them.`
+    }
+
+    if (book.title.startsWith('A Summer at')) {
+      return `Set in ${setting}, this warm seasonal story follows fresh beginnings, unexpected friendships, and discoveries that change the way its characters see home.`
+    }
+
+    if (book.title.startsWith('The Last Light in')) {
+      return `As the light begins to fade in ${setting}, its residents face a growing challenge and must decide what is worth protecting.`
+    }
+
+    if (book.title.startsWith('Beyond')) {
+      return `An adventurous journey reaches beyond ${setting}, opening a door to unfamiliar places, difficult choices, and new possibilities.`
+    }
+
+    return `A return to ${setting} brings familiar faces together and reveals how the place—and its people—have changed.`
+  }
+
+  const topic = book.title
+    .replace(
+      /^(A Beginner’s Guide to|The Art of|Small Steps in|Exploring|The Foundations of|A Year of|Fresh Ideas for|The Everyday Guide to|Understanding)\s+/,
+      '',
+    )
+    .replace(/\s+in Practice$/, '')
+
+  if (book.title.startsWith('A Beginner’s Guide')) {
+    return `An approachable introduction to ${topic}, with clear explanations and practical ideas readers can use in everyday life.`
+  }
+
+  if (book.title.startsWith('A Year of')) {
+    return `A year of short prompts and practical ideas to help readers explore ${topic} one day at a time.`
+  }
+
+  if (book.title.startsWith('Fresh Ideas')) {
+    return `A collection of fresh perspectives and exercises for exploring ${topic} and putting new ideas into action.`
+  }
+
+  if (book.title.startsWith('The Everyday Guide')) {
+    return `A clear everyday reference to ${topic}, breaking key ideas into practical steps and examples.`
+  }
+
+  if (book.title.startsWith('Understanding')) {
+    return `An accessible introduction to ${topic}, explaining core concepts and how they connect to daily life.`
+  }
+
+  if (book.title.startsWith('Small Steps')) {
+    return `A practical guide to making steady progress in ${topic} through manageable steps and everyday habits.`
+  }
+
+  if (book.title.startsWith('The Foundations')) {
+    return `A guide to the essential ideas behind ${topic}, designed to help readers build confidence from the ground up.`
+  }
+
+  if (book.title.endsWith('in Practice')) {
+    return `Actionable advice for applying ${topic} in real situations, with an emphasis on useful habits and practical decisions.`
+  }
+
+  return `Explore ${topic} through clear explanations, useful examples, and ideas to apply in everyday life.`
+}
+
+const catalogueBooks = [
   {
     "id": 1,
     "title": "The Midnight Library",
@@ -2003,3 +2102,8 @@ export const books = [
     "featured": false
   }
 ]
+
+export const books = catalogueBooks.map((book) => ({
+  ...book,
+  description: describeBook(book),
+}))
