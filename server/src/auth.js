@@ -6,6 +6,7 @@ import { betterAuth } from 'better-auth'
 
 // Adapter: connect Better Auth to Drizzle
 import { drizzleAdapter } from '@better-auth/drizzle-adapter'
+import { username } from 'better-auth/plugins'
 
 // Our own database connection and table descriptions
 import { db } from './db/index.js'
@@ -27,8 +28,26 @@ export const auth = betterAuth({
   // Allow people to register and log in with email and password
   emailAndPassword: {
     enabled: true,
-    minPasswordLength: 8,
+    minPasswordLength: 12,
   },
+
+  user: {
+    additionalFields: {
+      role: {
+        type: 'string',
+        required: false,
+        defaultValue: 'customer',
+        input: false,
+      },
+    },
+  },
+
+  plugins: [
+    username({
+      minUsernameLength: 3,
+      maxUsernameLength: 30,
+    }),
+  ],
 
   // Allow authentication requests from our frontend
   trustedOrigins: [

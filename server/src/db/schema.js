@@ -33,6 +33,7 @@ export const books = pgTable('books', {
 
   staffPick: boolean('staff_pick').default(false).notNull(),
   featured: boolean('featured').default(false).notNull(),
+  isAvailable: boolean('is_available').default(true).notNull(),
 })
 
 // One row per purchase

@@ -1,10 +1,12 @@
 // Load the Express package we installed.
 import express from 'express'
+import { eq } from 'drizzle-orm'
 import { db } from './db/index.js'
 import { books } from './db/schema.js'
 import { toNodeHandler } from 'better-auth/node'
 import { auth } from './auth.js'
 import checkoutRoutes from './checkout-routes.js'
+import adminRoutes from './admin-routes.js'
 
 // Node.js helper: convert a file URL into a filesystem path
 import { fileURLToPath } from 'node:url'
@@ -15,6 +17,7 @@ const app = express()
 // Express sends authentication requests to Better Auth
 app.all('/api/auth/*splat', toNodeHandler(auth))
 app.use('/api', checkoutRoutes)
+app.use('/api/admin', adminRoutes)
 
 // Use the hosting provider's port, or 3000 on our laptop.
 const PORT = Number(process.env.PORT || 3000)
@@ -34,6 +37,7 @@ app.get('/api/books', async (req, res) => {
     const allBooks = await db
       .select()
       .from(books)
+      .where(eq(books.isAvailable, true))
       .orderBy(books.id)
 
     // Send the resulting array to the browser as JSON
@@ -58,6 +62,10 @@ const frontendPath = fileURLToPath(
 
 // Express serves the website, images, CSS and browser JavaScript
 app.use(express.static(frontendPath))
+
+app.get('/backroom/books', (req, res) => {
+  res.sendFile(fileURLToPath(new URL('../../frontend/dist/index.html', import.meta.url)))
+})
 
 // Start listening for requests.
 app.listen(PORT, () => {

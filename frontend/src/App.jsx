@@ -8,8 +8,9 @@ import About from './components/About.jsx'
 import Footer from './components/Footer.jsx'
 import AccountSection from './components/AccountSection.jsx'
 import { CartProvider } from './context/CartContext.jsx'
+import AdminPage from './components/AdminPage.jsx'
 
-export default function App() {
+function StorefrontApp() {
   const [books, setBooks] = useState([])
   const [booksLoading, setBooksLoading] = useState(true)
   const [booksError, setBooksError] = useState('')
@@ -75,4 +76,12 @@ export default function App() {
       </div>
     </CartProvider>
   )
+}
+
+export default function App() {
+  if (window.location.pathname === '/backroom/books') {
+    return <AdminPage />
+  }
+
+  return <StorefrontApp />
 }

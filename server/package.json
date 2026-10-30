@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "node --watch src/index.js",
     "start": "node src/index.js",
-    "test": "node --test"
+    "test": "node --test",
+    "admin:bootstrap": "node src/admin-bootstrap.js"
   },
   "keywords": [],
   "author": "",

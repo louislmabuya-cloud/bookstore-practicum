@@ -75,7 +75,12 @@ router.post(
       const catalogueBooks = await db
         .select()
         .from(books)
-        .where(inArray(books.id, requestedBookIds))
+        .where(
+          and(
+            inArray(books.id, requestedBookIds),
+            eq(books.isAvailable, true),
+          ),
+        )
 
       if (catalogueBooks.length !== requestedBookIds.length) {
         return res.status(400).json({

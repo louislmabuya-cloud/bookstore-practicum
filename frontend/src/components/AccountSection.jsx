@@ -153,13 +153,18 @@ export default function AccountSection() {
                 <input
                   type="password"
                   autoComplete={isSignup ? 'new-password' : 'current-password'}
-                  minLength={8}
+                  minLength={isSignup ? 12 : undefined}
                   maxLength={128}
                   required
                   value={password}
                   onChange={(event) => setPassword(event.target.value)}
                   className={inputClass}
                 />
+                {isSignup && (
+                  <span className="mt-1 block text-sm text-[#6B5746]">
+                    Use at least 12 characters.
+                  </span>
+                )}
               </label>
 
               <button type="submit" className={buttonClass}>
