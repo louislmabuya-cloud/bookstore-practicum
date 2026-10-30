@@ -1,60 +1,89 @@
-# Book details: what changed and how it works
+# Book descriptions and detail window: where to find everything
 
-## What a shopper sees
+This guide explains the book-detail feature added to Boox Store and what was
+done in the database. It is written for someone new to the project.
 
-Selecting a book's cover, title, or **View book details** opens a dialog with:
+## What you can do on the website
 
-- the cover, title, and author
-- the category and current catalogue price
-- whether the book is a staff pick or featured title
-- an original short description
-- an **Add to cart** button showing the current quantity
+1. Open the bookstore and scroll to the book collection.
+2. Select a book's cover, title, or **View book details**.
+3. A window opens with its cover, title, author, category, price, catalogue
+   label, description, and an **Add to cart** button.
+4. Close the window with **Close**, press Escape, or select the shaded area
+   outside the window.
 
-The dialog can be closed with its Close button, by pressing Escape, or by
-selecting the shaded area outside it. The existing card-level Add to cart
-button still works as before.
+The original **Add to cart** button on each book card still works too.
 
-## Where the code lives
+## Find the changed files in VS Code
 
-- `frontend/src/data/books.js` adds descriptions for the 20 existing titles and
-  creates original descriptions for the fictional sample catalogue.
-- `frontend/src/components/BookCard.jsx` makes a book's cover and title open the
-  details dialog, while keeping the existing cart button.
-- `frontend/src/components/BookDetailsDialog.jsx` displays the book information
-  in an accessible native HTML dialog.
-- `server/src/db/schema.js` adds a required `description` field to the Drizzle
-  definition of the books table.
-- `server/src/db/migrations/0002_add_book_descriptions.sql` adds the column and
-  fills descriptions for existing database rows before requiring the value.
-- `server/src/db/seed.js` updates descriptions on existing rows when the book
-  catalogue is seeded again.
+Open the Explorer panel in VS Code and expand these folders:
 
-## How the information travels
+| What you want to understand | File in the project | What it does |
+|---|---|---|
+| Book data and descriptions | `frontend/src/data/books.js` | Holds the catalogue. The first 20 books have individual descriptions; descriptions for the sample catalogue are generated from each book's title and category. |
+| What opens the detail window | `frontend/src/components/BookCard.jsx` | Makes the book cover/title clickable and opens the detail window. It also keeps the original cart button. |
+| What the detail window looks like | `frontend/src/components/BookDetailsDialog.jsx` | Shows the selected book's details and cart button. |
+| What fields a book has in the database | `server/src/db/schema.js` | Defines the PostgreSQL `books` table for the server. It now includes a required `description` field. |
+| How an older database gets the new field | `server/src/db/migrations/0002_add_book_descriptions.sql` | Adds the column, fills any empty descriptions, and then makes the column required. |
+| How the catalogue is copied into the database | `server/src/db/seed.js` | Reads the shared catalogue from `frontend/src/data/books.js`, inserts new books, and updates descriptions for existing books. |
+| How the browser receives books | `server/src/index.js` | Its existing `/api/books` endpoint reads the database and returns the book records, including descriptions. |
+| How the change is explained in the project | `README.md` | Includes a short feature note and links back to this guide. |
 
-1. The seed data in `frontend/src/data/books.js` contains each book's
+## How the code pieces work together
+
+Think of the catalogue as a shared list:
+
+1. `frontend/src/data/books.js` supplies each book's details and description.
+2. `server/src/db/seed.js` copies that list into PostgreSQL. If a book ID is
+   already in the database, it refreshes that book's description.
+3. `server/src/db/schema.js` tells the server that every database book has a
    description.
-2. The seed script writes the descriptions into PostgreSQL.
-3. The server's existing `/api/books` endpoint returns the book records,
-   including their descriptions.
-4. `BookGrid` passes each book to `BookCard`.
-5. `BookCard` passes the selected book to `BookDetailsDialog`, which displays
-   the details without navigating away from the catalogue.
+4. The `/api/books` endpoint in `server/src/index.js` sends the database books
+   to the website as JSON.
+5. `BookGrid` gives each book to `BookCard`.
+6. `BookCard` passes the selected book to `BookDetailsDialog`, which displays
+   it in a window without leaving the collection.
 
-Descriptions are original catalogue copy. The app does not have fields for
-ISBN, publication date, page count, or format, so those details are not shown
-or invented.
+The detail window is a native HTML `<dialog>`. That gives it built-in keyboard
+support, including closing with Escape. React remembers whether the window is
+open and which book's details it should display.
 
-## Updating the database
+The project does not store ISBN, publication date, page count, or format, so
+the window does not claim to show those details.
 
-Apply the new migration once to each database, then run the seed script from
-the server folder so existing rows receive the full descriptions from the
-catalogue:
+## What was done in the database
+
+The description migration has been applied to the configured database. The
+seed script then reported that it updated 200 catalogue records. A follow-up
+database check confirmed:
+
+- 200 books total
+- 200 books with descriptions
+- no missing or blank descriptions
+
+The live `/api/books` endpoint also returned books with their descriptions.
+You do not need to run the migration or seed command again for this database.
+
+For reference, the safe-to-repeat commands are run from PowerShell like this:
 
 ```powershell
-cd server
-psql $env:DATABASE_URL -f src/db/migrations/0002_add_book_descriptions.sql
-node src/db/seed.js
+cd C:\Users\louis\Documents\bookstore-practicum\server
+node src\test-db.js
+node src\db\seed.js
 ```
 
-If `psql` is not installed, run the SQL migration using the database
-provider's SQL editor, then run `node src/db/seed.js` from `server`.
+`test-db.js` checks that the database responds. The seed command refreshes
+descriptions from the project catalogue. The migration is a one-time schema
+change and is stored at
+`server/src/db/migrations/0002_add_book_descriptions.sql`.
+
+## If you want to change a description later
+
+1. Open `frontend/src/data/books.js`.
+2. For one of the first 20 books, edit its entry in `bookDescriptions` near the
+   top of the file.
+3. For sample books, edit the `describeBook` rules, or add that book's ID to
+   `bookDescriptions` if it needs its own specific wording.
+4. Run `node src\db\seed.js` from the `server` folder to update descriptions in
+   the database.
+5. Refresh the website.
